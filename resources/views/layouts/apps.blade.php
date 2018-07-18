@@ -16,7 +16,7 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-	
+
 	<style>
 		.carousel-item {
 		  height: 65vh;
@@ -27,11 +27,11 @@
 		  -o-background-size: cover;
 		  background-size: cover;
 		}
-		
+
 		.font-judul {
 			font-family: 'Ubuntu', sans-serif;'
 		}
-		
+
 		.hovereffect {
 		  width: 100%;
 		  float: left;
@@ -118,7 +118,7 @@
 		  -webkit-transform: translate3d(0,0,0);
 		  transform: translate3d(0,0,0);
 		}
-		
+
 		/*Views Beli*/
 			img{
 	  max-width:100px;
@@ -128,7 +128,7 @@
 	input{
 		margin-top:20px;
 	}
-	
+
 	.btn-file {
     position: relative;
     overflow: hidden;
@@ -154,47 +154,49 @@
 	}
 	/*end Views Beli*/
 	</style>
-	
+
 </head>
 <body>
 	<!--HEADER-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="{!! url('/') !!}">commerch</a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	  </button>
+	    <a class="navbar-brand" href="{!! url('/') !!}">commerch</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		  <li class="nav-item active">
-			<a class="nav-link" href="{!! url('/') !!}">Home <span class="sr-only">(current)</span></a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="{!! url('/dashboard') !!}">Dashboard</a>
-		  </li>
-		  <li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  Dropdown
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <a class="dropdown-item" href="#">Action</a>
-			  <a class="dropdown-item" href="#">Another action</a>
-			  <div class="dropdown-divider"></div>
-			  <a class="dropdown-item" href="#">Something else here</a>
-			</div>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link disabled" href="#">Disabled</a>
-		  </li>
-		</ul>
-		<form class="form-inline my-2 my-lg-0">
-		  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
-	  </div>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    		<ul class="navbar-nav mr-auto">
+	    	    <li class="nav-item active">
+		    	    <a class="nav-link" href="{!! url('/') !!}">Home <span class="sr-only">(current)</span></a>
+                </li>
+		        <li class="nav-item">
+			        <a class="nav-link" href="{!! url('/dashboard') !!}">Dashboard</a>
+		        </li>
+                <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			            Users
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @guest
+                        <a class="dropdown-item" href="{!! url('/login') !!}">Login</a>
+                        <a class="dropdown-item" href="{!! url('/register') !!}">Register</a>
+                    @endguest
+                    @auth
+			            <a class="dropdown-item" href="{!! url('/logout') !!}">Logout</a>
+                    @endauth
+		        </li>
+		        <li class="nav-item">
+			        <a class="nav-link disabled" href="#">Disabled</a>
+		        </li>
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		        <input class="form-control mr-sm-2 mt-0" type="search" placeholder="Search" aria-label="Search">
+		        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+	    </div>
 	</nav>
 	<!--END HEADER-->
-	
+
 	<main>
 		@yield('content')
 	</main>
@@ -205,7 +207,7 @@
 
 	<script>
 		$('.carousel').carousel()
-		
+
 		/*Views Beli*/
 		function readURL(input) {
             if (input.files && input.files[0]) {
@@ -219,7 +221,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-		
+
 		$(document).ready( function() {
 			$(document).on('change', '.btn-file :file', function() {
 			var input = $(this),
@@ -228,33 +230,33 @@
 			});
 
 			$('.btn-file :file').on('fileselect', function(event, label) {
-				
+
 				var input = $(this).parents('.input-group').find(':text'),
 					log = label;
-				
+
 				if( input.length ) {
 					input.val(log);
 				} else {
 					if( log ) alert(log);
 				}
-			
+
 			});
 			function readURL(input) {
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
-					
+
 					reader.onload = function (e) {
 						$('#img-upload').attr('src', e.target.result);
 					}
-					
+
 					reader.readAsDataURL(input.files[0]);
 				}
 			}
 
 			$("#imgInp").change(function(){
 				readURL(this);
-			}); 	
-		});		
+			});
+		});
 		/*end Views Beli*/
 	</script>
 </html>
