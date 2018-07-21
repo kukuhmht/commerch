@@ -13,6 +13,9 @@
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	
+	<!--Icons-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
 	<!-- Styles -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
@@ -170,11 +173,14 @@
 		    	    <a class="nav-link" href="{!! url('/') !!}">Home <span class="sr-only">(current)</span></a>
                 </li>
 		        <li class="nav-item">
-			        <a class="nav-link" href="{!! url('/dashboard') !!}">Dashboard</a>
+			        <a class="nav-link" href="{!! url('/upload_barang') !!}"> <i class="fa fa-upload"></i> </a>
+		        </li>
+				<li class="nav-item">
+			        <a class="nav-link" href="{!! url('/dashboard') !!}"> <i class="fa fa-user"></i> </a>
 		        </li>
                 <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			            Users
+			            Masuk
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @guest
@@ -185,9 +191,6 @@
 			            <a class="dropdown-item" href="{!! url('/logout') !!}">Logout</a>
                     @endauth
 		        </li>
-		        <li class="nav-item">
-			        <a class="nav-link disabled" href="#">Disabled</a>
-		        </li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
 		        <input class="form-control mr-sm-2 mt-0" type="search" placeholder="Search" aria-label="Search">
@@ -195,6 +198,7 @@
 		    </form>
 	    </div>
 	</nav>
+	<br>
 	<!--END HEADER-->
 
 	<main>

@@ -16,6 +16,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/upload_barang', function () {
+    return view('upload_barang');
+});
+
 Route::get('/login', 'Auth\LoginController@index')->name('login');
 Route::post('/login', 'Auth\LoginController@login')->name('loginCustomer');
 Route::get('/register', 'Auth\RegisterController@index')->name('register');
